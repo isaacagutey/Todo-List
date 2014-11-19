@@ -1,0 +1,23 @@
+<div id="wrapper">
+<div  class="list">
+    <ol>
+      <% @todos.each do |item|%>
+          <li id="item<%=item.id%>">
+        <p>
+            <%=item.content%>
+            <input id="check" type="checkbox" name="done" <%="checked" if item.done%>>
+             <span><a href="/<%=item.id%>"><img id="edit" src="/images/edit.png"></a></span>
+             <img data-id="<%=item.id%>" id="delete" src="/images/delete.png">
+        </p>
+           </li>
+       <%end%>
+    </ol>
+</div>
+
+<section id="add">
+  <form action="/" method="post">
+    <textarea id="new_todo" name="content" placeholder="Todos&hellip;"></textarea>
+    <input type="submit" value="Add Todo item">
+  </form>
+</section>
+</div>
